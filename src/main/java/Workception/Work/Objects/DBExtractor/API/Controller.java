@@ -3,6 +3,7 @@ package Workception.Work.Objects.DBExtractor.API;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ public class Controller {
 	@Autowired
 	DBFactory factory;
 	
+	@CrossOrigin
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public ArrayList<?> getAllProjects() {
 		GetFromDB<?> result = factory.getData('p');
@@ -24,6 +26,7 @@ public class Controller {
 		return result.getData();
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/skills", method = RequestMethod.GET)
 	public ArrayList<?> getAllSkills() {
 		GetFromDB<?> result = factory.getData('s');
